@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,900;1,900&display=swap');
+
+html{
+    background-color: #F5F5F5 !important;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: #F5F5F5;
+    line-height: 1.4;
+    height: 100vh !important;
+    font-size: 15px;
+    height: 100vh;
+}
+
+.p_content_inner {
+    max-width: 1152px;
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+img{
+    border-radius: 10px;
+}
+
+.practiceL{
+    margin-bottom: 20px;
+}
+
+.uk-card{
+    border-radius: 10px;
+
+}
+
+body{
+    height: 1165px !important;
+}
+
+.p_content_container{
+    margin-top:2rem;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .p_content{
+        padding: 30px;
+    }
+}
+@media only screen and (max-width: 1008px) {
+
+    .p_content{
+        padding: 30px;
+    }
+}

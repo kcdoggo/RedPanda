@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+    <meta charset="UTF-8">
+    <link th:href="@{/css/korean_thread.css}" rel="stylesheet" />
+
+    <title>RedPanda</title>
+</head>
+<body>
+<div th:replace="/fragments/common_header.html :: common_header"></div>
+
+
+<div class="content_container">
+            <div class="content_inner">
+                <div class="content">
+
+
+
+                    <ul class="uk-breadcrumb">
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">Korean thread</a></li>
+                    </ul>
+
+                    <a uk-icon="icon: chevron-down" href="#toggle-animation" class=" k_thread_card_btn"  uk-toggle="target: #toggle-animation; animation: uk-animation-fade">
+                        Notice
+                    </a>
+                    <div id="toggle-animation" class="uk-card uk-card-default uk-card-body uk-margin-small k_thread_card">
+                        Ask about Korean grammar, vocabularies to native Koreans. Anyone can ask about a questions and answer it freely.
+                        But please be polite to each other. Posts are moderated. If your post or reply is offensive, it may be edited or deleted by our moderator.
+
+
+                    </div>
+
+                    <div class="search_keyword">
+                       Search result for
+                   </div>
+                <div th:each="item : ${list.dtoList}">
+                    <div class="content_item">
+
+                        <div class="k_posted_by">
+                            <span>• Posted by </span><span th:text="${item.writerEmail}"></span>
+                        </div>
+
+                        <div class="k_q_title_upper">
+                            <a th:href="@{/thread/getpost(bno=${item.bno},page=${list.page},type=${pageRequestDTO.type},keyword=${pageRequestDTO.keyword})}"  class="k_q_title">
+                                [[${item.title}]]
+                            </a> <span class=" uk-label uk-label-success">General question</span>
+                        </div>
+
+                        <div th:utext="${item.content}"></div>
+                       <div class="k_reply_count">
+                        <span uk-icon="commenting"></span> <span th:text="${item.replyCount}"> </span> comments
+                       </div>
+                    </div>
+
+                </div>
+                </div>
+                <ul class="uk-pagination uk-flex-center" uk-margin>
+                    <li th:if="list.prev">
+                        <a href="@{/thread/korean(page=${list.start -1})}">
+                            <span  uk-pagination-previous></span>
+                        </a>
+                    </li>
+
+                    <li class="${list.page == page ? 'uk-active':''}" th:each="page: ${list.pageList}" >
+                        <a th:href="@{/thread/korean(page = ${page},
+            type=${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword}      )}">[[${page}]]</a>
+                    </li>
+
+                    <li th:if="list.next">
+                        <a th:href="@{/thread/korean(page=${list.end + 1},
+             type=${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword}
+            )}">
+                            <span uk-pagination-next></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function (){
+                (".k_q_title").on("click",function (){
+                    console.log("click!");
+                })
+            })
+
+        </script>
+</body>
+</html>

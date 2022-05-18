@@ -1,0 +1,151 @@
+.g_content_container{
+    max-width: 1152px;
+    margin: 2rem auto;
+    padding-top: 30px;
+    background-color: white;
+    padding: 70px ;
+    border-radius: 7px;
+    height: 100%;
+}
+
+textarea:focus{
+    border: 1px black solid !important;
+}
+.content-question{
+    border: solid 1px grey;
+    padding: 40px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+#delete_div{
+    border: none;
+    background-color: white;
+    color: darkred;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.question-header{
+    font-size: 1.8rem;
+    color: black;
+    padding-bottom: 1.5rem;
+}
+
+.question-content{
+    font-size: 1.3rem;
+    color: black;
+    width: 100%;
+}
+.uk-comment-header{
+    background-color: white;!important;
+}
+.comment-container{
+    display: flex;
+    margin-bottom: 3rem;
+
+}
+
+.c_modify_btn{
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-end;
+    color: cornflowerblue;
+
+
+}
+
+.usericon{
+    border-radius: 90px !important;
+    margin-right: 50px !important;
+    width: 70px;
+
+}
+.comment_flex{
+    display: flex;
+}
+.uk-comment-avatar{
+    border-radius: 80px;
+}
+.writerNpw{
+    display: flex;
+}
+.profile_name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 34px !important;
+    width: 70px;
+    padding-left: 0px !important;
+}
+
+
+
+article{
+    padding: 0px !important;
+}
+
+.uk-comment-body{
+    padding:40px;
+    font-size: 16px;
+    color: black;
+    line-height: 1.8rem;
+    width: 100%;
+}
+
+
+
+.uk-link-reset{
+    font-size: 14px;
+}
+.uk-comment-body{
+    border:1px solid grey;
+    border-radius: 5px;
+    background-color: white !important;
+}
+
+.commentDelete{
+    display: flex !important;
+    justify-content: flex-end;
+}
+
+.reply_post_sec{
+    margin-top: 4rem;
+}
+
+.uk-breadcrumb{
+    margin-bottom: 5rem;
+}
+
+.uk-breadcrumb li a{
+    font-size: 15px;
+}
+
+.uk-input:focus{
+    border: black solid 1px !important;
+}
+
+.k_q_title{
+    font-size: 0.9rem !important;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .profile_name{
+        margin-right: 9px !important;
+    }
+
+    .question-header{
+        font-size: 15px;
+    }
+    p{
+        font-size: 15px;
+    }
+
+}

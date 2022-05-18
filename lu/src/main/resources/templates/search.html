@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>RedPanda</title>
+    <div th:replace="/fragments/common_header.html :: common_header"></div>
+    <link th:href="@{/css/korean_thread.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="content_container ">
+        <div class="content_inner">
+            <div class="content search-content">
+
+                <div class="searchKeyword">Search for <span th:text="${searchKeyword}"></span></div>
+                <div class="content_item" th:each="item : ${result}">
+                    <!--
+                    <div class="k_posted_by">
+                        <span>• Posted by </span><span th:text="${item.writerEmail}"></span>
+                    </div> -->
+                    <div class="k_q_title_upper">
+                        <a th:href="@{/thread/getpost(bno=${item.bno})}"  class="k_q_title">
+                            [[${item.title}]]</a>
+                    </div>
+                    <div  th:utext="${item.content}"></div>
+
+                    <!--
+                    <div class="k_reply_count">
+                        <span uk-icon="commenting"></span> <span th:text="${item.replyCount}"> </span> comments
+                    </div>  -->
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

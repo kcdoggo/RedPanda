@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+
+
+
+    <meta charset="UTF-8">
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+
+    <title>RedPanda</title>
+</head>
+<body>
+
+    <div class="top-section">
+        <div class="top-header">
+            <div class="logo">RedPanda</div>
+
+          <div class="signInUp">
+            <a href="/thread/customLogin" id="signup">Sign up</a>
+            <a href="/thread/customLogin">Sign in</a>
+          </div>
+        </div>
+
+        <div class="l_container" >
+            <div class="l_inner">
+                <div class="heading">
+                   <div class="lead_outer">
+                    <span class="lead">Wherever you are</span>
+                   </div>
+                       <div class="title">
+                        Learn Korean Online For Free
+                        <br>
+                        Language Exchange App
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="second-container">
+            <div class="second-content">
+                <div class="second-head">
+                Get answers from real native speakers of Korean.
+                <br>
+                You're learning on the RedPanda app!
+                </div>
+                <p id="paragraph">On RedPand, you can ask questions about korean grammars, appropriate vocabuary use and their culture and get answers
+                from real local Korean. You can ask questions like "How would you say in Korean ?",
+                "What's the difference between these two words?" You can likewise teach about your local language. We have a
+                friendly, give-and-take community waiting to help!</p>
+                <div class="icon-list">
+                    <div class="list">
+                      <span class="ico" uk-icon="comments"></span>
+                      <p class="ico-p">Ask in English and get an answer from local Koreans</p>
+                        <hr class="uk-divider-vertical">
+
+                    </div >
+
+                    <div  class="list">
+                      <span class="ico" uk-icon="happy"></span>
+                        <p class="ico-p">You can make Korean language partners as you wish!</p>
+
+                        <hr class="uk-divider-vertical">
+
+                    </div>
+
+
+                    <div class="list">
+                      <span class="ico" uk-icon="world"></span>
+                           <p class="ico-p">Real Native Korean will answer your questions !</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="second-image">
+
+            </div>
+    </div>
+
+    <div class="third-container"  >
+
+        <div class="third-head">Ready for Learning Koean with RedPanda ?
+            <br>
+            Let's get started !
+        </div>
+
+
+        <div id="my-signin2">
+            <div style="height:50px;width:240px;" class="abcRioButton abcRioButtonBlue"><div OnClick="location.href ='/oauth2/authorization/google'"  class="abcRioButtonContentWrapper"><div class="abcRioButtonIcon" style="padding:15px"><div style="width:18px;height:18px;" class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="abcRioButtonSvg"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg></div></div><span style="font-size:16px;line-height:48px;" class="abcRioButtonContents"><span id="not_signed_inkztmh7k0hd2z">Sign in with Google</span><span id="connectedkztmh7k0hd2z" style="display:none">Signed in with Google</span></span></div></div></div>
+
+        <div id="loginhere">
+            <a href="#">login here</a>
+            <div style="border-right: 1px solid white; margin-right: 10px; margin-left: 10px; "></div>
+            <a href="/thread/korean">Look around RedPanda </a>
+        </div>
+    </div>
+
+
+    <script>
+
+        var googleLink =
+            $(".abcRioButtonContentWrapper").on("click",function(){
+                console.log("click")
+
+            })
+
+
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+
+
+
+
+
+</body>
+</html>

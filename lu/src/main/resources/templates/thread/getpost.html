@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+    <link th:href="@{/css/getpost.css}" rel="stylesheet" />
+
+    <title>RedPanda</title>
+    <div th:replace="/fragments/common_header.html :: common_header"></div>
+
+</head>
+<body>
+
+
+    <div class="g_content_container">
+        <div class="g_content_inner">
+            <div class="g_content">
+
+                <ul class="uk-breadcrumb">
+                    <li><a href="/">Main</a></li>
+                    <li><a href="/thread/korean">Korean thread</a></li>
+                    <li><a href="#"> [[${post.title}]]</a></li>
+                </ul>
+
+                <div class="comment-container">
+                    <div>
+                        <img th:src="${post.writerPic}" class="usericon">
+
+                       <!-- <span uk-icon="icon: user; ratio:2" class="usericon"></span> -->
+                    </div>
+
+                    <div class="content-question">
+                      <div>
+                      <div class="question-header">
+                          [[${post.title}]]
+                      </div>
+                      <div class="question-content">
+
+                          <div th:utext="${post.content}"></div>
+
+                          <div class="c_modify_btn">
+
+                              <a th:href="@{/thread/modify-content(bno=${post.bno})}"  class="k_q_title">
+                              modify
+                              </a>
+
+                                  <button id="delete_div" >
+                                      Delete
+                                  </button>
+
+                              <form id="actionForm" action="" method="">
+                                  <input type="hidden" name="bno" th:value="${post.bno}">
+                              </form>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+            </div>
+
+                </div>
+                <!--uk-comment uk-comment-primary -->
+
+                <div  class="replies_list ">
+
+
+
+                       <div  th:each=" item : ${reply}" class=" reply_items ">
+
+                           <div class="comment_flex">
+
+                                <div >
+                                    <div>
+                                        <div class="profile_name">
+                                            <img class="uk-comment-avatar" src="/css/user.jpg" width="80" height="80" alt="">
+                                            <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">[[${item.replyer}]]</a></h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                           <div class="content-question">
+                               <div class="question-content" >
+                              <p > [[${item.replyContent}]]</p>
+                               <li><a href="#" th:text="${#temporals.format(item.regDate, 'yyyy-MM-dd')}">
+                                   </a></li>
+                               <span  class="commentDelete" uk-toggle="target: #my-id" type="button" uk-icon="trash"></span>
+                               </div>
+
+                           </div>
+
+                           </div>
+
+                            <div>
+
+
+                            <div id="my-id" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <h2 class="uk-modal-title">Delete a comment</h2>
+                                    <p> confirm the password of the comment </p>
+
+                                    <form method="post" action="/thread/delete-comment">
+                                        <input type="text" id="confirm_r_ps" name="replyPw">
+                                        <input type="hidden" id="bno" name="bno" th:value="${post.bno}">
+                                        <input type="hidden" id="rno" name="rno" th:value="${item.rno}">
+                                        <button  type="submit">submit</button>
+                                    </form>
+                                    <button class="uk-modal-close uk-button uk-button-primary"  type="button" style="margin-top:2.5rem;">close</button>
+                                    <p class="uk-text-right">
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <hr class="uk-divider">
+
+                <div class="reply_section">
+
+
+                    <form class="reply_post_sec">
+                        <fieldset class="uk-fieldset">
+
+                            <legend class="uk-legend">Comment</legend>
+
+                            <div class="uk-margin writerNpw" >
+                                <input class="uk-input replyer_c" type="text" placeholder="Writer">
+                                <input class="uk-input replyPw_c" type="text" placeholder="Password">
+                            </div>
+
+
+
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea reply_input" rows="5" placeholder="Type here ... "></textarea>
+                            </div>
+
+                            <input type="hidden" name="bno" th:value="${post.bno}">
+
+                            <button type="submit" class="post_reply uk-button uk-button-secondary uk-button-small">Comment</button>
+
+
+                        </fieldset>
+                    </form>
+
+
+
+                </div>
+
+
+
+        </div>
+
+    </div>
+    </div>
+
+        <script>
+            $(document).ready(function (){
+
+
+                var actionForm =$("#actionForm");
+                var bno = [[${post.bno}]];
+                var replyList = $(".replies_list");
+
+                var repliesCount = $(".reply_items").length;
+                console.log("replies count"+ repliesCount);
+
+
+
+
+                function getReplies(){
+                    $.getJSON('/comments/board/'+bno,function (lists){
+                        console.log("is it even working");
+                        console.log(lists);
+
+                        var comments  = "";
+
+                        $.each(lists, function (index, comment){
+                            console.log(comment);
+
+                            comments += '<div style="display: flex; margin-bottom: 20px;">';
+                            comments += '<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; max-width: 70px; margin-right: 34px ;">'+'<img style="border-radius: 80px" className="uk-comment-avatar" src="/css/user.jpg" width="80" height="80" alt="">'+'<div>'+comment.replyer+'</div>'+'</div>';
+
+                            comments += '<div style="border: 1px solid grey; border-radius: 5px; padding: 40px; font-size: 16px; width: 100%; line-height: 1.8rem;">'+comment.replyContent+'<div th:text="${#temporals.format('+comment.regDate+', "yyyy-MM-dd")}">'+'</div>'+'</div>';
+                            comments += '</div>';
+
+
+
+                        })
+                        replyList.html(comments);
+
+                    })
+                }
+
+
+
+
+
+
+
+
+                $("#delete_div").on("click",function (){
+                    actionForm
+                        .attr("action","/thread/delete-content")
+                        .attr("method","post")
+                        .submit();
+                });
+
+
+                $(".post_reply").on("click", function (c){
+                    c.preventDefault();
+
+
+                    var replyer_c = $(".replyer_c").val();
+                    var replyContent_c = $(".reply_input").val();
+                    var replyPw = $(".replyPw_c").val();
+
+                    var reply_obj ={
+                        "replyer" : replyer_c,
+                        "replyContent" : replyContent_c,
+                        "bno" : bno,
+                        "replyPw": replyPw
+                    };
+
+                    console.log(reply_obj);
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/comments',
+                        data : JSON.stringify(reply_obj),
+                        dataType : "json",
+                        contentType: "application/json",
+                        success: function (data){
+                            console.log("added : "+data);
+                            console.log("getting replies///")
+                            getReplies();
+
+
+                        },
+                        error: function (res){
+                            console.log("err"+res);
+                        }
+
+                    })
+
+
+                });
+
+
+
+            })
+
+
+        </script>
+</body>
+</html>

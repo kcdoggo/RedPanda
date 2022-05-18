@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RedPanda</title>
+    <link th:href="@{/css/sendingMessage.css}" rel="stylesheet" />
+
+    <div th:replace="/fragments/common_header.html :: common_header"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+    <div class="message_section" >
+
+        <div class="message_display" >
+            <div class="messageB">
+
+            </div>
+
+            <span id="time"></span>
+        </div>
+    </div>
+
+
+
+
+    <div class="sedningMessageInput">
+        <textarea name="content" id="contentValue"></textarea>
+        <input type="hidden" name="receiver" th:value="${receiver}" id="receiver">
+        <button id="sendBtn" class="uk-button uk-button-secondary uk-width-1-1">Send</button>
+
+    </div>
+    <input type="hidden" name="sender" th:value="${session.member.email}">
+    <script>
+        $(document).ready(function (){
+
+            var receiver = $('input[name=receiver]').val();
+            var sender = $('input[name=sender]').val();
+         //   console.log("receiver: "+receiver);
+
+         //   console.log("sender: "+sender);
+
+
+            setInterval(chatlist, 2000);
+
+            function chatlist(){
+                $.ajax({
+                    url: "/message/lists",
+                    type: 'post',
+                    async: true,
+                    data : {'receiver': receiver,
+                        'sender': sender},
+                    dataType: "json",
+                    success: function (data){
+                        var a = '';
+
+                        //mid로 오름차순 정렬.
+                        data.sort(function (a,b){
+                            return parseFloat(a.mid) - parseFloat(b.mid);
+                        })
+                        console.log(data);
+
+                        $.each(data, function (key,value){
+
+                            a += '<div style="margin-top: 20px">';
+                            a += '<div">'+value.sender_nickname+'</div>'
+                            a +='<div class="messageBar" style="margin-bottom: 15px;">';
+                            a +='<div class="messageContent">' +'<div>' +value.content+'</div>' +'</div>';
+                            a +='</div>';
+                            a += '</div>';
+
+                        })
+                         $('.messageB').html(a);
+
+                    },error: function (error){
+                         console.log("error");
+                    }
+
+                })
+            }
+
+           $("#sendBtn").on("click",function (e){
+               e.preventDefault();
+               var message_content = $("textarea#contentValue").val();
+               var receiver_value = $("#receiver").val();
+
+
+               var messageObj = {
+                   "content" : message_content,
+                   "receiver" : receiver_value
+               }
+
+               console.log( messageObj);
+                $("#contentValue").val('');
+
+
+               $.ajax({
+                   type : 'POST',
+                   url: '/message/send',
+                   data: JSON.stringify(messageObj),
+                   dataType : "json",
+                   contentType: "application/json",
+                   success: function(data) {
+                    /**
+                        $.each(data, function (i, order){
+                            $('.messageBar').append("<div>"+ order.content +"</div>")
+                        })
+
+                             **/
+                   },
+                   error: function (error){
+                       console.log("error");
+                   }
+
+               })
+           })
+
+        })
+
+    </script>
+</body>
+</html>

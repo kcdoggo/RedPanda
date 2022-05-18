@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,900;1,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: #F5F5F5;
+    line-height: 1.4;
+    font-size: 15px;
+    height: 1165px;
+}
+
+.head{
+    background-color: darkred;
+
+}
+
+.head_inner{
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   /** height: 70px;**/
+}
+.logo{
+    font-family: 'Raleway', sans-serif;
+
+    font-weight: 900;
+    font-size: 2.5rem;
+    font-style:italic;
+    color: white;
+}
+
+#logopadna{
+    color: white;
+}
+#logopadna:hover{
+    color: white;
+    text-decoration: none;
+}
+.search_bar{
+    background-color: white !important;
+    color:black !important;
+}
+
+.head_operations{
+    color: white;
+}
+
+.uk-fieldset{
+    margin-top:9rem !important;
+}
+
+.searchbar_for_sm{
+    display: none;
+    width: 100%;
+    margin: 0px;
+}
+
+
+.content{
+    max-width: 1152px;
+    margin: 2rem auto;
+    padding-top: 2rem;
+    padding-right: 37px;
+    padding-left: 37px;
+    background-color: white;
+}
+
+.content_item{
+    border-bottom: 1px solid #d8d8d8;
+    padding-top: 1.3rem;
+    padding-bottom: 1rem;
+    padding-left: 15px;
+}
+
+.search_keyword{
+    font-size: 1.7rem;
+    color: black;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    display: none;
+}
+.search_keyword a :hover{
+    color: black;
+    text-decoration-line: none;
+
+}
+.searchbar .head{
+    flex-grow: 1;
+    padding: 0 1rem;
+}
+
+.searchbar{
+    flex-basis: 250px;
+    flex-grow: 1;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.content_title{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.content_container{
+    display: block;
+    max-width: 1152px;
+    margin: 0px auto;
+    background-color: white;
+    height: 100vh;
+}
+.uk-button{
+    color: white;
+    font-weight: 600;
+}
+.uk-button:hover{
+    transition: 0.5s ease-in ;
+     color: whitesmoke;
+
+}
+.signin{
+    border-style: none;
+}
+.head_operations_icon a{
+    display: none;
+    color: white;
+
+}
+#usericon{
+    padding-right: 5px;
+}
+
+.uk-label{
+    font-size: 10px;
+}
+.uk-navbar{
+    background: none !important;
+}
+
+.uk-navbar-toggle-icon{
+    min-height: 10px;
+}
+
+li{
+    list-style: none;
+}
+
+.k_thread_card{
+    border: 1px solid #e5e5e5;
+}
+. k_thread_card_btn .uk-button{
+    color: black !important;
+}
+
+.logout{
+    margin-right: 10px;
+}
+
+.uk-offcanvas-bar ul{
+    padding-left:5px;
+    line-height: 3rem;
+}
+.uk-offcanvas-bar ul li a{
+    padding-right: 5px;
+    line-height: 1.2rem;
+}
+
+.uk-offcanvas-bar{
+    opacity: 0.9;
+}
+
+.k_reply_count{
+    padding-top: 8px;
+    padding-top: 8px;
+}
+
+
+.k_q_title{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+
+.k_q_title:hover{
+    color: black;
+    text-decoration-line: none;
+
+}
+.k_posted_by{
+    font-size: 12px;
+}
+.k_q_title_upper{
+
+padding-bottom: 10px;
+padding-top: 5px;
+}
+
+
+
+.search-content{
+
+}
+
+.searchKeyword{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 20px;
+    margin-bottom: 2rem;
+}
+
+
+
+@media screen and (max-width: 576px){
+    .searchbar{
+        display: none;
+    }}
+
+@media only screen and (max-width: 576px){
+    .searchbar_for_sm{
+        display: block;
+
+    }
+}
+@media only screen and (max-width: 796px){
+    .head_operations{
+        display: none;
+
+    }
+    .head_operations_icon a{
+        display: inline;
+
+    }
+}
+
+

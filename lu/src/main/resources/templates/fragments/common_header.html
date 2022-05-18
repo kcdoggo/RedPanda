@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<th:block th:fragment="common_header">
+<head>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+    <meta charset="UTF-8">
+    <link th:href="@{/css/korean_thread.css}" rel="stylesheet" />
+
+    <title>Title</title>
+</head>
+<body>
+<div class="head">
+    <div class="head_inner">
+        <div class="inner">
+            <div class="logo">
+                <a id="logopadna" href="/thread/korean"> RedPanda</a>
+
+            </div>
+
+            <form class="uk-search uk-search-default  uk-margin searchbar" method="post" action="/thread/search">
+             <!--   <a href="" class="uk-search-icon-flip" uk-search-icon></a>  -->
+                <button  class="uk-search-icon-flip" uk-search-icon type="submit"></button>
+                <input class="uk-search-input search_bar" type="search" placeholder="Search" name="content">
+            </form>
+
+
+
+            <div class="head_operations_container">
+                <div class="head_operations">
+
+                    <a sec:authorize ="!isAuthenticated()" >
+
+                        <a class="uk-button uk-button-default signup" href="/thread/customLogin" style="margin-right: 10px;">Sign in</a>
+                    </a>
+                    <a sec:authorize ="isAuthenticated()" >
+                        <a class="uk-button uk-button-default logout" href="/logout">log out</a>
+                    </a>
+                    <span uk-icon="icon: user"></span>
+
+
+                    <div uk-dropdown >
+                        <ul class="uk-nav uk-dropdown-nav" >
+                            <a sec:authorize ="isAuthenticated()" >
+                                <li><a href="/thread/post-k-questions">Write on Koean thread</a></li>
+                                <li><a href="/thread/posting-partner">Write on Language exchange</a></li>
+                            </a>
+                            <li><a href="/thread/language-partner">Language exchange</a></li>
+                            <li><a href="/thread/korean">Korean thread</a></li>
+
+                            <li class="uk-nav-divider"></li>
+                            <a sec:authorize ="isAuthenticated()" >
+                               <li><a href="#">Hello [[${session.member.name}]]</a></li>
+                               <li><a href="/thread/mailbox">MailBox</a></li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="head_operations_icon">
+
+
+                    <div class="uk-navbar-container" uk-navbar>
+                        <div class="uk-navbar">
+                            <a href="#offcanvas-usage" uk-toggle class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
+
+
+                            <div id="offcanvas-usage" uk-offcanvas flip="true">
+                                <div class="uk-offcanvas-bar">
+
+                                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                                    <h3>NAVI</h3>
+
+                                    <ul>
+                                        <li ><a href="/thread/customLogin" >Sign up</a>  </li>
+                                        <li><a href="/thread/customLogin" > Sign in</a>  </li>
+                                        <li><a href="/thread/main">Main</a></li>
+                                        <li><a href="/thread/language-partner">Korean Language Partners</a></li>
+                                    </ul>
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <form action="/thread/search" method="post" class="uk-search uk-search-default  uk-margin searchbar_for_sm">
+        <input class="uk-search-input search_bar" type="search" name="content" placeholder="Search">
+
+        <button type="submit" class="uk-search-icon-flip" uk-search-icon></button>
+    </form>
+
+
+
+</div>
+
+
+</body>
+</th:block>
+</html>

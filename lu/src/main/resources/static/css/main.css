@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,900;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+
+.top-section{
+    background:  linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+    ), url("koreanBackground.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height:500px;
+}
+.top-header{
+    margin: 0 auto;
+    max-width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding-top: 0.9rem;
+}
+.signInUp{
+    display: flex;
+
+}
+
+#signup{
+    margin-right: 10px;
+}
+
+.logo{
+    font-weight: 900;
+    font-size: 2.5rem;
+    font-style:italic;
+    color: white;
+}
+
+.l_container{
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.heading{
+    padding-top: 5rem;
+
+}
+.title{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top:1rem;
+    text-align: center;
+}
+.lead{
+    padding: 9px 12px;
+    background-color: darkred;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.l_inner{
+    display: flex;
+    justify-content: center;
+}
+.lead_outer{
+    display: flex;
+    justify-content: center;
+}
+.second-container{
+    height: 73%;
+    background-color: white;
+    flex-wrap: wrap;
+
+}
+
+.third-container{
+    background-color: #16182e;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+.third-head{
+    color: floralwhite;
+    line-height: 3rem;
+    font-size: 30px;
+    padding-top: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+.second-container{
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 1300px;
+    margin: 0 auto;
+
+}
+
+.second-image{
+    background: url("second-image.svg");
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 5rem;
+}
+#paragraph{
+    font-size: 18px;
+    width: 80%;
+
+}
+.second-content{
+    width: 60%;
+
+}
+
+#my-signin2{
+    width: 233px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+#loginhere{
+    justify-content: center;
+    display: flex;
+    padding-top: 2rem;
+    font-size: 17px;
+    color: white !important;
+}
+.icon-list{
+    display: flex;
+    padding-top: 38px;
+    width: 80%;
+}
+.list{
+    font-size: 15px;
+    display: flex;
+}
+
+.list p{
+    width: 70%;
+}
+
+.ico svg{
+    width: 42px !important;
+    padding-right: 10px;
+}
+
+.ico-p{
+    margin-top: 0px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+a{
+    color: white !important;
+}
+
+@media only screen and (max-width: 1240px ){
+    .second-container{
+        height: max-content;
+    }
+    .second-image{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1400px ){
+    .second-container{
+        height: max-content;
+        padding-top: 1.6rem;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    #paragraph {
+       display: none;
+    }
+
+
+    .second-head{
+        font-size: 25px;
+        padding-top: 1rem;
+        text-align: center;
+    }
+    .second-image{
+        display: none;
+    }
+    .icon-list{
+        flex-direction: column;
+        margin-top: 0;
+        width: 100%;
+        margin-right: 0px !important;
+
+    }
+    .list{
+        justify-content: center;
+
+    }
+    .uk-divider-vertical{
+        display: none;
+    }
+
+    .second-container{
+        height: max-content;
+        padding-bottom: 1.8rem;
+    }
+
+    .top-section{
+        padding: 20px;
+    }
+    .third-head{
+        font-size: 22px;
+        padding: 20px;
+
+    }
+    .third-container{
+        height: max-content;
+        padding-bottom: 2rem;
+    }
+    #my-signin2{
+        margin-top: 15px;
+        height: max-content;
+    }
+}

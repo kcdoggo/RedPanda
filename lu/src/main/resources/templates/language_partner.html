@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+
+    <link th:href="@{/css/language_partner.css}" rel="stylesheet" />
+
+    <title>Language partner</title>
+</head>
+<body>
+
+<div th:replace="/fragments/common_header.html :: common_header"></div>
+
+        <div class="p_content_container">
+            <div class="p_content_inner">
+                <div class="p_content">
+
+                    <ul class="uk-breadcrumb">
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">Korean Language Partner</a></li>
+                    </ul>
+
+                    <div>
+                        <a uk-icon="icon: chevron-down" href="#toggle-animation" class=" k_thread_card_btn"  uk-toggle="target: #toggle-animation; animation: uk-animation-fade">
+                            Notice
+                        </a>
+                        <div id="toggle-animation" class="uk-card uk-card-default uk-card-body uk-margin-small">
+
+                            This thread is aiming to help korean learners to find partners to practice Korean with. Help each other to correct gramatical errors, pronunciations to improve your fluency.
+                            We cheer your korean learning journey !
+                            (Notice : Any cyber bullying, verbal abuse, sexual harassment will not be tolerated. Please use this page only for education purpose.)
+                        </div>
+
+
+                        <div th:each="item : ${partnerResult}" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img th:src="${item.partnerPic}" alt="partner picture" uk-cover>
+                                <canvas width="600" height="400"></canvas>
+                            </div>
+                            <div>
+                                <div class="uk-card-body">
+                                    <div style="display: flex ; align-items: center; ">
+                                        <h3 class="uk-card-title">[[${item.nickname}]]</h3>
+
+                                            <span class="message" uk-icon="mail" style="margin-bottom: 10px; width: 25px; margin-left: 10px;"></span>
+
+                                    </div>
+                                    <div >Age : [[${item.age}]]</div>
+                                    <div >Gender: [[${item.gender}]]</div>
+                                    <div >Hobby & Interest : [[${item.hobby}]]</div>
+                                    <div >Native Language : [[${item.nativeLanguage}]]</div>
+                                    <div class="practiceL">Practice Language : [[${item.practiceLanguage}]]</div>
+                                    <div th:utext="${item.description}"></div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="actionForm" method="POST" action="/thread/sendingMessages">
+            <input type="hidden" id="nickname" name="nickname" value="">
+        </form>
+
+<script>
+    $(document).ready(function (){
+
+        var actionForm = $(".actionForm");
+
+        $('.message').click(function(){
+            var result = $(this).prev().html();
+
+            $("#nickname").val(result);
+             actionForm.submit();
+
+        })
+    })
+
+</script>
+
+
+</body>
+</html>
