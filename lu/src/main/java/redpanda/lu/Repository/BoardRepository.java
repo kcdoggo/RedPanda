@@ -53,6 +53,8 @@ public interface BoardRepository extends JpaRepository<Board,Long> {
 
 
     List<Board> findByContentContains(String content);
+    List<Board> findByTitleContains(String content);
+    List<Board> findByTagContains(String content);
 
     @Query("select b from Board b where b.content like '%content%'")
     List<Board> getContent(@Param("content") String content);

@@ -40,6 +40,18 @@
                     <div id="cap">Create a post</div>
 
                     <form th:action="@{/thread/post}" method="post">
+                        <lable for="tag">Tag</lable>
+                        <div uk-form-custom="target: > * > span:last-child">
+                            <select name="tag" id="tag">
+                                <option value="General Question">General Question</option>
+                                <option value="Grammar">Grammar</option>
+                                <option value="Vocabulary">Vocabulary</option>
+                                <option value="Culture">Culture</option>
+                            </select>
+                            <span class="uk-link">
+                            <span uk-icon="icon: pencil"></span>
+                        </span>
+                        </div>
                        <div>
                         <input class="p_title uk-input" type="text" name="title" placeholder="title">
                        </div>
@@ -70,6 +82,7 @@
                         -->
 
                         <input  class="uk-input" type="text" name="imgUrl" >
+
                         <button type="submit" class="uk-button uk-button-default posting_btn">SUBMIT</button>
 
                     </form>

@@ -2,11 +2,14 @@ package redpanda.lu.Repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import redpanda.lu.Configuration.Oauth.SecurityConfig;
 import redpanda.lu.Dto.BoardDTO;
 import redpanda.lu.Dto.PageRequestDTO;
 import redpanda.lu.Dto.PageResultDTO;
@@ -23,6 +26,7 @@ import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+//@EnableAutoConfiguration(exclude = {SecurityConfig.class})
 class BoardRepositoryTest {
 
     @Autowired
@@ -33,7 +37,12 @@ class BoardRepositoryTest {
 
     @Test
     public void search(){
-        List<Board> result = boardRepository.findByContentContains("강추");
+
+        List<Board> result = boardRepository.findByContentContains("bag");
+        if (result == null){
+            List<Board> alternative = boardRepository.findByTitleContains("bag");
+            System.out.println("alresult"+ alternative);
+        }
         System.out.println("result : "+result);
     }
 
@@ -45,6 +54,7 @@ class BoardRepositoryTest {
 
 
     @Test
+
     public void insertBoard(){
 
         IntStream.rangeClosed(0,10).forEach(i->{

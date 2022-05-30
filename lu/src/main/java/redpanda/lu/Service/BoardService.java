@@ -39,6 +39,7 @@ public interface BoardService {
                 .title(board.getTitle())
                 .content(board.getContent())
                 .imgUrl(board.getImgUrl())
+                .tag(board.getTag())
                 .writerEmail(member.getEmail())
                 .writerName(member.getName())
                 .writerPic(member.getPicture())

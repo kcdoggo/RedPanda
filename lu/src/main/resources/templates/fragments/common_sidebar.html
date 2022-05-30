@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:fragment="common_sidebar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RedPanda</title>
+
+    </head>
+<body>
+<div class="side">
+    <div class="side_menu .uk-box-shadow-medium">
+        <div class="tag_container">
+            <div>Tag</div>
+            <div class="tag_button">
+                <button onclick="location.href='http://localhost:8080/thread/search/tag?content=General%20Question';">General Question</button>
+                <button onclick="location.href='http://localhost:8080/thread/search/tag?content=Vocabulary';">Grammar</button>
+                <button onclick="location.href='http://localhost:8080/thread/search/tag?content=Culture';">Culture</button>
+            </div>
+        </div>
+        <br/>
+        <div class="page_list" >
+            <div>
+                <a href="">Language Exchange</a>
+            </div>
+            </br>
+            <div> <a href="">Post</a></div>
+            <div><a href="">- Korean thread</a></div>
+            <div> <a href="">- Language exchange</a></div>
+            <div> <a href="">- MailBox</a></div>
+
+        </div>
+    </div>
+
+    <div class="side_menu_2">
+        <a href="https://www.studyinkorea.go.kr/ko/main.do" target="_blank">
+            <div id="side_menu_text">
+                Seoul Korean
+                Language Academy
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</th:block>
+</html>

@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()// URL별 권한 권리
                 .antMatchers("/","/css/**","/ckeditor/**").permitAll()
-                .antMatchers("/thread/korean","/thread/main","/thread/getpost/**","/thread/delete-comment","/thread/customLogin","/thread/language-partner","/thread/sendMessages").permitAll()
+                .antMatchers("/thread/korean","/thread/main","/thread/getpost/**","/thread/delete-comment","/thread/customLogin","/thread/language-partner","/thread/sendMessages","/thread/search").permitAll()
                 .antMatchers("thread/post-k-questions").hasRole(Role.USER.name())
                 .antMatchers("thread/post").hasRole(Role.USER.name())
                 .anyRequest().authenticated() // anyRequest : 설정된 값들 이외 나머지 URL 나타냄, authenticated : 인증된 사용자

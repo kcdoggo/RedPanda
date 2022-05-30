@@ -61,6 +61,7 @@ public class BoardServiceImple implements BoardService{
 
         Board board = Board.builder()
                 .bno(dto.getBno())
+                .tag(dto.getTag())
                 .title(dto.getTitle())
                 .content(dto.getContent())
                 .imgUrl(dto.getImgUrl())
@@ -137,6 +138,7 @@ public class BoardServiceImple implements BoardService{
         //엔티티 변경
         board.changeTitle(boardDTO.getTitle());
         board.changeContent(boardDTO.getContent());
+        board.changeTag(boardDTO.getTag());
         board.changeImgUrl(boardDTO.getImgUrl());
 
         //변경후 엔티티를 리포지토리 영속성 컨텍스트에 저장.

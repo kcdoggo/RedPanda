@@ -3,6 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+    <!--ckeditor -->
+    <script src="//cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
 
@@ -11,12 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
     <script src="uikit/dist/js/uikit-icons.min.js"></script>
 
-
-
-    <!--summer note -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <meta charset="UTF-8">
     <link th:href="@{/css/posting-questions.css}" rel="stylesheet" />
@@ -40,52 +37,52 @@
             <div id="cap">Update a post</div>
 
             <form th:action="@{/thread/update-post}" method="post">
+
+                <lable for="tag">Tag</lable>
+
+                    <select name="tag" id="tag">
+                        <option value="General Question">General Question</option>
+                        <option value="Grammar">Grammar</option>
+                        <option value="Vocabulary">Vocabulary</option>
+                        <option value="Culture">Culture</option>
+                    </select>
+
+
                 <div>
                     <input  class="p_title uk-input" th:field="${post.bno}"  id="bno"  type="hidden" name="bno" >
                     <input  class="p_title uk-input" th:field="${post.title}"  id="title"  type="text" name="title" >
+
                 </div>
 
+                <!--th:utext="${post.content}" -->
+                <textarea name="content" id="content" rows="10" cols="80">
+                [[${post.content}]]
+                </textarea>
 
-                <!-- <div id="summernote"></div> -->
-                <textarea id="summernote" name="content"></textarea>
-                <script>
-
-
-                    $('#summernote').summernote(
-
-
-                        {
-                        placeholder: 'content',
-                        tabsize: 2,
-                        height: 200,
-                        toolbar: [
-                            ['style', ['style']],
-                            ['font', ['bold', 'underline', 'clear']],
-                            ['color', ['color']],
-                            ['para', ['ul', 'ol', 'paragraph']],
-                            ['table', ['table']],
-                            ['insert', ['link', 'picture', 'video']],
-                            ['view', ['fullscreen', 'codeview', 'help']]
-                        ]
-                    });
-
-                    $("#summernote").summernote("code","${post.writerName}");
-                </script>
                 <div>
                     <input class="uk-input" type="hidden" name="writerEmail"  th:field="${post.writerEmail}">
                 </div>
 
                 <input  class="uk-input" type="hidden" name="writerName" placeholder="name" th:field="${post.writerName}" >
                 <input  class="uk-input" type="hidden" name="imgUrl" >
-              <!--  <input type="submit" value="update"/>-->
-                <button type="submit" class="uk-button uk-button-default c_update">Update </button>
 
+                <button type="submit"  class="uk-button uk-button-default c_update">Update </button>
             </form>
 
+            <button th:onclick="savee()" type="button">click</button>
 
         </div>
     </div>
 
 </div>
+
+<script>
+    CKEDITOR.replace( 'content' );
+
+    $(document).ready(function() {
+    });
+</script>
+
+
 </body>
 </html>

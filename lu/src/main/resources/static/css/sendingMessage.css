@@ -4,13 +4,14 @@ body{
 
 .message_section{
     width: 900px;
-    margin: 2rem auto;
+    margin: 0 auto;
     height: 450px ;
-    border-radius: 10px ;
     background-color: white;
     padding-top: 30px;
-    margin-top: 5.5rem !important;
     overflow: scroll;
+    border: 1px solid darkred;
+    border-bottom: 0;
+
 
 }
 
@@ -18,36 +19,51 @@ body{
 
 }
 
+#C_heading{
+    margin: 0 auto;
+    margin-top: 2rem !important;
+    font-size: 1.6rem;
+    width: 900px;
+    background-color: darkred;
+    color: white;
+    padding: 20px;
+}
+
 .sedningMessageInput {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 900px;
+    margin: 0px auto;
+    border: 1px solid darkred;
+    border-top: 0;
 
 }
 
+#sendBtn{
+    width: 81px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #3D3D3D;
+}
 
 
 #contentValue{
     width: 900px;
     height: 150px;
-    margin: 1rem auto;
     border-style: none;
-    background-color: lightgrey;
     border-radius: 10px ;
 
     outline: none;
     border: none;
     padding: 20px;
-
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
 }
 
 #contentValue:checked{
     border-style: none;
 }
 
-#sendBtn{
-    width: 900px;
-    margin: 0 auto;
-}
 
 .messageB{
     margin-left: 25px;

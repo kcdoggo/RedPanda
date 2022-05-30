@@ -5,10 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import redpanda.lu.Configuration.Oauth.SessionUser;
@@ -58,11 +55,33 @@ public class BoardController {
 
     @PostMapping("/search")
     public String doSearch(String content, Model model){
+
         List<Board> byContentContains = boardRepository.findByContentContains(content);
+        if(byContentContains.isEmpty()  ){
+            List<Board> byTitleContains = boardRepository.findByTitleContains(content);
+            model.addAttribute("result",byTitleContains);
+        }else{
+            model.addAttribute("result",byContentContains);
+
+        }
+
         log.info("===========search result============="+byContentContains);
 
         model.addAttribute("searchKeyword", content);
-        model.addAttribute("result",byContentContains);
+        return "search";
+    }
+
+
+
+    @GetMapping("/search/tag")
+    public String doSearchTag(@RequestParam("content") String content, Model model){
+
+
+        List<Board> byTagContains = boardRepository.findByTagContains(content);
+        log.info("===========search result============="+byTagContains);
+
+        model.addAttribute("searchKeyword", content);
+        model.addAttribute("result", byTagContains);
         return "search";
     }
 
@@ -243,6 +262,7 @@ public class BoardController {
     @PostMapping("/update-post")
     public String update(BoardDTO dto){
 
+        log.info("modified dto : " +dto);
         boardService.modifyingContent(dto);
 
         return "redirect:/thread/korean";

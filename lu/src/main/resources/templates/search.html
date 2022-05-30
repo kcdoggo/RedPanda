@@ -11,7 +11,9 @@
 <body>
 
     <div class="content_container ">
-        <div class="content_inner">
+        <div th:replace="/fragments/common_sidebar.html :: common_sidebar"></div>
+
+        <div class="content_inner search_inner">
             <div class="content search-content">
 
                 <div class="searchKeyword">Search for <span th:text="${searchKeyword}"></span></div>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,900;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 *{
     margin: 0px;
     padding: 0px;
@@ -8,10 +8,10 @@
 }
 body{
     font-family: 'Raleway', sans-serif;
+    font-size: 15px;
     background-color: #F5F5F5;
     line-height: 1.4;
-    font-size: 15px;
-    height: 1165px;
+    height: 156vh !important;
 }
 
 .head{
@@ -65,9 +65,41 @@ body{
     margin: 0px;
 }
 
+/**
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break:break-all;
+    display: block;
+    text-align: left;
+    height: 50px;
+    width: 80%;
+    width: 80%;2
+
+}
+**/
+
+.q_content p:not(:first-of-type){
+    display: none;
+}
+.q_content p:first-of-type{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break:break-all;
+    display: block;
+    text-align: left;
+    width: 80%;
+}
+
+.content-question p{
+    word-break: break-word;
+    line-height: 1.9rem;
+}
 
 .content{
-    max-width: 1152px;
+    max-width: 925px;
     margin: 2rem auto;
     padding-top: 2rem;
     padding-right: 37px;
@@ -115,11 +147,68 @@ body{
 
 .content_container{
     display: block;
-    max-width: 1152px;
+    display: flex;
+    max-width: 1211px;
     margin: 0px auto;
-    background-color: white;
     height: 100vh;
 }
+
+.side_menu{
+    background-color: white;
+    width: 229px;
+    margin-right: 20px;
+    margin-top: 2rem;
+    padding: 20px;
+    height: max-content;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.side_menu a{
+    color: black;
+    line-height: 1.5rem;
+
+}
+.side_menu a:hover{
+    text-decoration: none;
+
+}
+
+.side_menu_2{
+    font-family: 'Bebas Neue', cursive;
+    background-color: red;
+    width: 229px;
+    margin-right: 20px;
+    margin-top: 2rem;
+    height: 800px;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+    ), url("side_image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+#side_menu_text{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.tag_button button{
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.page_list a{
+    display: inline-block;
+}
+
 .uk-button{
     color: white;
     font-weight: 600;
@@ -204,15 +293,31 @@ li{
     font-size: 12px;
 }
 .k_q_title_upper{
-
+    display: flex;
+    align-items: center;
 padding-bottom: 10px;
 padding-top: 5px;
 }
 
 
+.uk-label a{
+    color: white;
 
-.search-content{
+}
+.uk-label a:hover{
+    text-decoration: none;
+}
 
+.uk-label{
+    margin-left: 10px !important;
+}
+
+.side_menu_2 a{
+    color: white;
+}
+.side_menu_2 a:hover{
+    color: white;
+    text-decoration: none;
 }
 
 .searchKeyword{
@@ -223,7 +328,9 @@ padding-top: 5px;
     margin-bottom: 2rem;
 }
 
-
+.search_inner{
+    width: 78%;
+}
 
 @media screen and (max-width: 576px){
     .searchbar{

@@ -20,6 +20,7 @@ public class Board extends BaseTimeEntity{
 
     private String title;
 
+    @Column(length = 10000)
     private String content;
 
     @Column(nullable = true)
@@ -29,6 +30,8 @@ public class Board extends BaseTimeEntity{
     @ManyToOne( fetch = FetchType.LAZY)
     private Member writer;
 
+
+    private String tag;
 
     // title, content,imgUrl만 변경가능하게.
     public void changeTitle(String title) {
@@ -44,5 +47,7 @@ public class Board extends BaseTimeEntity{
     }
 
 
-
+    public void changeTag(String tag) {
+        this.tag = tag;
+    }
 }

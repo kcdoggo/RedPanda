@@ -21,7 +21,12 @@
 
 
 <div class="content_container">
-            <div class="content_inner">
+
+    <div th:replace="/fragments/common_sidebar.html :: common_sidebar"></div>
+
+
+
+    <div class="content_inner">
                 <div class="content">
 
 
@@ -54,10 +59,15 @@
                         <div class="k_q_title_upper">
                             <a th:href="@{/thread/getpost(bno=${item.bno},page=${list.page},type=${pageRequestDTO.type},keyword=${pageRequestDTO.keyword})}"  class="k_q_title">
                                 [[${item.title}]]
-                            </a> <span class=" uk-label uk-label-success">General question</span>
+                            </a>
+                            <span   th:if="${item.tag == 'Vocabulary'}"  class=" uk-label"><a href="http://localhost:8080/thread/search/tag?content=Vocabulary">[[${item.tag}]]</a></span>
+                            <span   th:if="${item.tag == 'Culture'}"  class=" uk-label uk-label-warning"><a href="http://localhost:8080/thread/search/tag?content=Culture">[[${item.tag}]]</a></span>
+                            <span   th:if="${item.tag == 'General Question'}"  class=" uk-label  uk-label-success "><a href="http://localhost:8080/thread/search/tag?content=General Question">[[${item.tag}]]</a></span>
+
+
                         </div>
 
-                        <div th:utext="${item.content}"></div>
+                        <div class="q_content" th:utext="${item.content}"></div>
                        <div class="k_reply_count">
                         <span uk-icon="commenting"></span> <span th:text="${item.replyCount}"> </span> comments
                        </div>

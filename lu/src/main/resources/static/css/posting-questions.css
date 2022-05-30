@@ -49,6 +49,8 @@ body{
     height: 100vh;
 }
 
+
+
 .c_update{
     color: black !important;
     width: 100% !important;
@@ -57,4 +59,8 @@ body{
 .posting_btn{
     color: #666 !important;
     width: 100%;
+}
+
+#selector{
+    color: #3D3D3D;
 }
