@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<th:block th:fragment="common_footer">
+<head>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+
+    <meta charset="UTF-8">
+    <link th:href="@{/css/korean_thread.css}" rel="stylesheet" />
+
+    <title>Title</title>
+</head>
+<body>
+<div class="footer">
+    <ul class="footer_ul">
+        <li>Help</li>
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+        <li>Display based on Specified Commercial Transactions Law</li>
+        <li>Policy</li>
+        <li>About</li>
+        <li>Company</li>
+
+    </ul>
+</div>
+</body>
+</th:block>
+</html>

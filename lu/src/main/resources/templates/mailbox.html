@@ -21,19 +21,21 @@
 
 
 <div class="content_container">
-            <div class="content_inner">
-                <div class="content">
+            <div class="content_inner mailbox_inner">
+                <div th:replace="/fragments/common_sidebar.html :: common_sidebar"></div>
+
+                <div class="mailbox_content">
 
 
 
                     <ul class="uk-breadcrumb">
                         <li><a href="#">Main</a></li>
-                        <li><a href="#">MailBox</a></li>
+                        <li><a href="#">Inbox</a></li>
                     </ul>
 
 
                     <div class="mailbox-container" style="background-color: white; margin-top: 3rem; ">
-                        <div><h1>MailBox</h1></div>
+                        <div><h1>Inbox</h1></div>
                         <div class="mailingList" style="border: 1px solid darkred; padding: 20px; " th:each="r : ${receiverInfo}">
                             <div id="messagePage" style="font-size: 17px;" >[[${r}]] </div>
 
@@ -81,4 +83,6 @@
         </script>
 
 </body>
+<div th:replace="/fragments/common_footer.html :: common_footer"></div>
+
 </html>

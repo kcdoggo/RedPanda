@@ -40,7 +40,8 @@
                     <div id="cap">Create a post</div>
 
                     <form th:action="@{/thread/post}" method="post">
-                        <lable for="tag">Tag</lable>
+
+                        <lable style="margin-left: 8px" for="tag">Tag</lable>
                         <div uk-form-custom="target: > * > span:last-child">
                             <select name="tag" id="tag">
                                 <option value="General Question">General Question</option>

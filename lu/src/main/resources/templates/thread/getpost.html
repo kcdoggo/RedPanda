@@ -96,7 +96,7 @@
                            <div class="content-question">
                                <div class="question-content" >
                               <p > [[${item.replyContent}]]</p>
-                               <li><a href="#" th:text="${#temporals.format(item.regDate, 'yyyy-MM-dd')}">
+                               <li><a  style="color: grey" href="#" th:text="${#temporals.format(item.regDate, 'yyyy-MM-dd')}">
                                    </a></li>
                                <span  class="commentDelete" uk-toggle="target: #my-id" type="button" uk-icon="trash"></span>
                                </div>
@@ -271,5 +271,8 @@
 
 
         </script>
+
+    <div th:replace="/fragments/common_footer.html :: common_footer"></div>
+
 </body>
 </html>

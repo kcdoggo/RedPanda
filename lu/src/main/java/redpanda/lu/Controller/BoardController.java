@@ -52,6 +52,11 @@ public class BoardController {
 
     }
 
+    @GetMapping("/koreanNews")
+    public String news(){
+        return "koreanNews";
+    }
+
 
     @PostMapping("/search")
     public String doSearch(String content, Model model){

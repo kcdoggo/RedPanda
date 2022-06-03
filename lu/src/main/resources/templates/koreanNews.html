@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>RedPanda</title>
+
+    <link th:href="@{/css/news.css}" rel="stylesheet" />
+    <div th:replace="/fragments/common_header.html :: common_header"></div>
+
+</head>
+<body>
+
+    <div class="news_container">
+        <div>
+
+            <div class="news_header">Korean News</div>
+
+            <div>
+
+                <div class="news_container">
+
+
+                    <div th:each="item: ${#numbers.sequence(1,19)}" class="news_section_one">
+                        <div class="image_btn">
+                           <!-- <img class="news_image" th:id='${item}'  src=""> -->
+
+
+                            <a class="news_title" th:id='${item}+c' href="" target="_blank">
+
+                            <img class="news_image" th:id='${item}'  src="/css/Frame1.svg">
+                        </a>
+                        </div>
+                        <div class="title_one">
+
+                            <a class="news_title" th:id='${item}+a' href="" target="_blank">News Title</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(
+            function() {
+
+
+
+                function getNews() {
+
+
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://newsapi.org/v2/top-headlines?'+
+                            'country=kr&' +
+                            'sortBy=popularity&' +
+                            'apiKey=86e201b96d5f47ddb139308e6631ed19',
+
+                        dataType:'json',
+                        success: function(data){
+                            console.log(data);
+                            embedNews(data);
+
+                        },
+                        error: function(response){
+                            console.log("Request Failed"+response);
+                        }
+                    });
+                }
+
+
+                function embedNews(data) {
+
+                    for(let i=0; i<21; i++){
+
+                        $('#'+i).attr('src', data.articles[i].urlToImage).css({'height':"200px", 'width':"277px","background-size":"cover"});
+                        $('#'+i+'a').text(data.articles[i].title).attr('href',data.articles[i].url);
+                        $('#'+i+'c').attr('href',data.articles[i].url);
+                       if(data.articles[i].urlToImage == ''){
+                           $('#'+i).attr('src', '/css/Frame1.svg');
+                       }
+
+                        console.log(i);
+                    }
+
+
+                }
+
+                getNews();
+
+            });
+
+
+    </script>
+</body>
+</html>

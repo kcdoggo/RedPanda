@@ -1,3 +1,6 @@
+
+
+
 .p_title{
     border-style: none;
     padding-top: 1rem;
@@ -16,6 +19,7 @@
 
 body{
     background-color: #d7d4f0;
+
 }
 
 .uk-input{
@@ -48,8 +52,38 @@ body{
     padding: 50px;
     height: 100vh;
 }
+.form_inner{
+    display: flex;
+    margin-bottom: 2.3rem;
+}
+.image_section{
+    border: 2px cornflowerblue dashed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0.6rem 0;
+}
 
+#upload_text{
+    color: cornflowerblue;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
 
+#image_icon svg{
+    width: 160px;
+    color: cornflowerblue;
+    opacity: 0.7;
+}
+#image{
+    display: none;
+}
+
+.input_section{
+    width: 50%;
+}
 
 .c_update{
     color: black !important;

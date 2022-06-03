@@ -40,6 +40,10 @@
                     <div id="cap">Create a post</div>
 
                     <form  enctype="multipart/form-data" th:action="@{/thread/post-partner}" method="post">
+
+                     <div class="form_inner">
+                      <div class="input_section">
+
                        <div>
                         <input class="p_title uk-input" type="text" name="nickname" placeholder="nickname">
                        </div>
@@ -55,15 +59,21 @@
                         <div>
                         <input class="p_title uk-input" type="String" name="practiceLanguage" placeholder="practiceLanguage">
                        </div>
-                        <div>
-                        <input class="p_title uk-input" type="file" name="multipartFile" placeholder="partnerPice">
-                       </div>
+
                         <div>
                         <input class="p_title uk-input" type="String" name="hobby" placeholder="hobby">
                        </div>
 
 
-                           <!-- <div id="summernote"></div> -->
+                      </div>
+
+                        <div class="image_section">
+                            <label for="image" id="image_icon" uk-icon="icon: image"></label>
+                            <div id="upload_text">Upload a picture</div>
+                            <input id="image" class="p_title uk-input" type="file" name="multipartFile" placeholder="partnerPice">
+                        </div>
+                     </div>
+                        <!-- <div id="summernote"></div> -->
                         <textarea id="summernote" name="description"></textarea>
                             <script>
                                 $('#summernote').summernote({

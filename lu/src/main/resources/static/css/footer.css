@@ -1,0 +1,12 @@
+.footer_ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer{
+    color: black;
+    width: 1150px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    background-color: #F5F5F5;
+}
