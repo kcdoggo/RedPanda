@@ -1,4 +1,4 @@
-# RedPanda
+
 <p align="center">
 
 # Description 
