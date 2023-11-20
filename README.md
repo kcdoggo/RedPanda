@@ -1,10 +1,10 @@
 # RedPanda
 <p align="center">
 
-#Description 
+# Description 
 Welcome to RedPanda, your go-to platform for learning and enhancing your Korean language skills! Whether you're curious about grammar, building your vocabulary, or seeking general insights about Korea, RedPanda has you covered.
 
-Key Features:
+# Key Features
 
 Knowledge Hub: Ask and explore questions related to grammar, vocabulary, and gain general insights about Korea from our community of language enthusiasts and experts.
 
