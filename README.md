@@ -1,6 +1,6 @@
 # RedPanda
 <p align="center">
-  <img src="https://github.com/kcdoggo/RedPanda/assets/74845274/0166412c-45b0-487d-8b36-4c27bf66abd9" width="500"  height="500">
+  <img src="https://github.com/kcdoggo/RedPanda/assets/74845274/e769f8b3-4e6d-4e00-a951-fad57b2e0343" width="500"  height="200">
 </p>
 
 
